@@ -28,57 +28,57 @@ export const skills = {
 export const projects = [
   {
     id: 1,
-    title: "Decentralized Voting System",
-    description: "A blockchain-based voting platform ensuring transparent and tamper-proof elections. Built with Solidity smart contracts and React frontend.",
+    title: "Email Automation Tool",
+    description: "Python-based email automation system for sending bulk emails, scheduling campaigns, and managing email templates with intelligent filtering and tracking.",
     featured: true,
-    tech: ["Solidity", "Ethers.js", "React", "Hardhat", "IPFS"],
-    github: "https://github.com/alexjohnson/decentralized-voting",
-    demo: "https://voting-dapp-demo.vercel.app"
+    tech: ["Python", "SMTP", "Automation", "Email API"],
+    github: "https://github.com/retarduser404/email-automation",
+    demo: "#"
   },
   {
     id: 2,
-    title: "AI Study Assistant",
-    description: "Chrome extension that helps students learn better with AI-powered summaries, flashcards, and quiz generation from any webpage.",
+    title: "E-commerce Store",
+    description: "Full-stack e-commerce platform with product management, shopping cart, secure checkout, order tracking, and admin dashboard.",
     featured: true,
-    tech: ["React", "OpenAI API", "Chrome Extension API", "TypeScript"],
-    github: "https://github.com/alexjohnson/ai-study-assistant",
-    demo: "https://chrome.google.com/webstore"
+    tech: ["React", "Node.js", "Express", "MySQL", "Tailwind CSS"],
+    github: "https://github.com/retarduser404/ecommerce-store",
+    demo: "#"
   },
   {
     id: 3,
-    title: "Task Management App",
-    description: "Full-stack MERN application with real-time updates, drag-and-drop functionality, and team collaboration features.",
+    title: "AI Chat Assistant",
+    description: "Intelligent chatbot powered by generative AI that can answer questions, provide recommendations, and assist users with various tasks.",
     featured: true,
-    tech: ["MongoDB", "Express", "React", "Node.js", "Socket.io"],
-    github: "https://github.com/alexjohnson/task-manager",
-    demo: "https://taskmanager-demo.vercel.app"
+    tech: ["Python", "Generative AI", "React", "Node.js", "TensorFlow"],
+    github: "https://github.com/retarduser404",
+    demo: "#"
   },
   {
     id: 4,
-    title: "Weather Dashboard",
-    description: "Real-time weather application with 7-day forecasts, interactive maps, and location-based weather alerts.",
+    title: "Security Scanner Tool",
+    description: "Cybersecurity tool for scanning web applications and networks to identify vulnerabilities, security flaws, and potential threats.",
     featured: false,
-    tech: ["React", "OpenWeather API", "Tailwind CSS", "Chart.js"],
-    github: "https://github.com/alexjohnson/weather-dashboard",
-    demo: "https://weather-dash-demo.vercel.app"
+    tech: ["Python", "Linux", "Security Libraries", "Networking"],
+    github: "https://github.com/retarduser404",
+    demo: "#"
   },
   {
     id: 5,
-    title: "E-commerce Product Page",
-    description: "Modern product showcase with image galleries, cart functionality, and responsive design patterns.",
+    title: "Task Management App",
+    description: "Modern task management application with real-time updates, team collaboration, priority settings, and deadline tracking.",
     featured: false,
-    tech: ["Next.js", "Stripe", "Prisma", "PostgreSQL"],
-    github: "https://github.com/alexjohnson/ecommerce-page",
-    demo: "https://ecommerce-demo.vercel.app"
+    tech: ["React", "Node.js", "Firebase", "Tailwind CSS"],
+    github: "https://github.com/retarduser404",
+    demo: "#"
   },
   {
     id: 6,
     title: "Portfolio Website",
-    description: "Personal portfolio built with modern web technologies, featuring dark mode, animations, and a blog section.",
+    description: "Personal portfolio built with modern web technologies, featuring dark mode, smooth animations, blog section, and contact form.",
     featured: false,
     tech: ["React", "Tailwind CSS", "FastAPI", "MongoDB"],
-    github: "https://github.com/alexjohnson/portfolio",
-    demo: "https://alexjohnson.dev"
+    github: "https://github.com/retarduser404/portfolio",
+    demo: "#"
   }
 ];
 
