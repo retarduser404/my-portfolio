@@ -21,7 +21,7 @@ const Navigation = ({ darkMode, toggleDarkMode }) => {
       setIsScrolled(window.scrollY > 20);
 
       // Update active section based on scroll position
-      const sections = ['home', 'about', 'projects', 'blog', 'experience', 'contact'];
+      const sections = ['home', 'about', 'projects', 'blog', 'contact'];
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
