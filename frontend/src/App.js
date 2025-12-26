@@ -6,9 +6,9 @@ import About from './components/About';
 import Projects from './components/Projects';
 import Blog from './components/Blog';
 import BlogPost from './components/BlogPost';
-import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import { experience } from './data/mock';
 import './App.css';
 
 function HomePage() {
@@ -40,12 +40,11 @@ function HomePage() {
 
   return (
     <div className="min-h-screen bg-page text-foreground transition-colors duration-300">
-      <Navigation darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      <Navigation darkMode={darkMode} toggleDarkMode={toggleDarkMode} hasExperience={experience.length > 0} />
       <Hero />
       <About />
       <Projects />
       <Blog />
-      <Experience />
       <Contact />
       <Footer />
     </div>
