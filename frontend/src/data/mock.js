@@ -722,23 +722,4 @@ See you at the next hackathon! 🚀
   }
 ];
 
-export const experience = [
-  {
-    id: 1,
-    year: "2024 - Present",
-    title: "Freelance Web Developer",
-    description: "Building custom web applications for clients, specializing in React frontends and Node.js backends. Delivered 10+ projects including e-commerce sites, landing pages, and SaaS applications."
-  },
-  {
-    id: 2,
-    year: "2023 - 2027",
-    title: "B.Tech in Computer Science",
-    description: "Currently pursuing Bachelor of Technology degree with focus on Software Engineering, Data Structures, Algorithms, and Web Technologies. Maintaining a strong academic record while building real-world projects."
-  },
-  {
-    id: 3,
-    year: "2023",
-    title: "First Hackathon Win",
-    description: "Participated in my first 48-hour hackathon and secured 3rd place with EcoTrack, a carbon footprint tracking application. Learned rapid prototyping, team collaboration, and working under pressure."
-  }
-];
+export const experience = [];
