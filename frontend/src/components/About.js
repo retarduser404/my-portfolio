@@ -65,13 +65,13 @@ const About = () => {
               </div>
             </div>
 
-            {/* Web3 */}
+            {/* AI/ML */}
             <div className="bg-card p-6 rounded-lg border border-custom hover:border-accent transition-colors">
               <h4 className="text-xl font-bold mb-4 accent-color uppercase tracking-wide">
-                Web3
+                AI & Machine Learning
               </h4>
               <div className="flex flex-wrap gap-2">
-                {skills.web3.map((skill) => (
+                {skills.aiml.map((skill) => (
                   <Badge
                     key={skill}
                     variant="secondary"
@@ -83,8 +83,26 @@ const About = () => {
               </div>
             </div>
 
-            {/* Tools */}
+            {/* Cyber Security */}
             <div className="bg-card p-6 rounded-lg border border-custom hover:border-accent transition-colors">
+              <h4 className="text-xl font-bold mb-4 accent-color uppercase tracking-wide">
+                Cyber Security
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {skills.cybersecurity.map((skill) => (
+                  <Badge
+                    key={skill}
+                    variant="secondary"
+                    className="px-4 py-2 text-sm bg-accent/10 text-foreground border border-accent/30 hover:bg-accent/20"
+                  >
+                    {skill}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+
+            {/* Tools - spans full width on larger screens */}
+            <div className="bg-card p-6 rounded-lg border border-custom hover:border-accent transition-colors md:col-span-2">
               <h4 className="text-xl font-bold mb-4 accent-color uppercase tracking-wide">
                 Tools & Platforms
               </h4>
