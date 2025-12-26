@@ -18,10 +18,11 @@ export const personalInfo = {
 };
 
 export const skills = {
-  frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Vite"],
-  backend: ["Node.js", "Express", "MongoDB", "PostgreSQL", "FastAPI"],
-  web3: ["Solidity", "Ethers.js", "Hardhat", "IPFS", "Web3.js"],
-  tools: ["Git", "Docker", "AWS", "Vercel", "GitHub Actions"]
+  frontend: ["React.js", "Tailwind CSS", "HTML5", "CSS3", "JavaScript"],
+  backend: ["Node.js", "Express", "Python", "MySQL", "Firebase"],
+  aiml: ["Generative AI", "TensorFlow", "Machine Learning", "AI Integration"],
+  cybersecurity: ["Network Security", "Security Best Practices", "Linux", "Penetration Testing"],
+  tools: ["Git", "GitHub", "Linux", "C++", "VS Code", "Postman"]
 };
 
 export const projects = [
