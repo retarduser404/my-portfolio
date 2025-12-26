@@ -1,19 +1,19 @@
 // Mock data for portfolio website
 
 export const personalInfo = {
-  name: "Alex Johnson",
+  name: "Kartik Pathak",
   title: "Full Stack Developer",
-  subtitle: "Specializing in Web3 and AI",
-  education: "BCA Student graduating in 2027",
+  subtitle: "Specializing in Full Stack Development, AI & Cyber Security",
+  education: "BCAFSD Full Stack Development specialization graduating in 2027 from Jaipur National University",
   bio: [
-    "I'm a passionate full-stack developer with a keen interest in emerging technologies like Web3 and AI. Currently pursuing my BCA degree, I love building innovative solutions that solve real-world problems.",
-    "When I'm not coding, you'll find me exploring new frameworks, contributing to open-source projects, or writing about my journey in tech. I believe in continuous learning and sharing knowledge with the developer community.",
-    "My goal is to create impactful applications that make a difference while staying at the forefront of technological innovation."
+    "I'm a passionate full-stack developer with a keen interest in emerging technologies like AI and Cyber Security. Currently pursuing my BCAFSD degree at Jaipur National University, I love building innovative solutions that solve real-world problems.",
+    "When I'm not coding, you'll find me exploring new frameworks, learning about security best practices, or experimenting with AI/ML models. I believe in continuous learning and practical application of technology.",
+    "My goal is to create impactful applications that make a difference while staying at the forefront of technological innovation in full-stack development, artificial intelligence, and cybersecurity."
   ],
   social: {
-    github: "https://github.com/alexjohnson",
-    linkedin: "https://linkedin.com/in/alexjohnson",
-    email: "alex.johnson@example.com"
+    github: "https://github.com/retarduser404",
+    linkedin: "https://www.linkedin.com/in/kartik-pathak-379959269/",
+    email: "kartikpathak776@outlook.com"
   }
 };
 
