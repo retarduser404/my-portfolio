@@ -37,6 +37,45 @@ class StatusCheck(BaseModel):
 class StatusCheckCreate(BaseModel):
     client_name: str
 
+class ContactMessage(BaseModel):
+    model_config = ConfigDict(extra="ignore")  # Ignore MongoDB's _id field
+    
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    name: str
+    email: EmailStr
+    message: str
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    status: str = "unread"
+
+    @validator('name')
+    def validate_name(cls, v):
+        if len(v.strip()) < 2:
+            raise ValueError('Name must be at least 2 characters long')
+        return v.strip()
+
+    @validator('message')
+    def validate_message(cls, v):
+        if len(v.strip()) < 10:
+            raise ValueError('Message must be at least 10 characters long')
+        return v.strip()
+
+class ContactMessageCreate(BaseModel):
+    name: str
+    email: EmailStr
+    message: str
+
+    @validator('name')
+    def validate_name(cls, v):
+        if len(v.strip()) < 2:
+            raise ValueError('Name must be at least 2 characters long')
+        return v.strip()
+
+    @validator('message')
+    def validate_message(cls, v):
+        if len(v.strip()) < 10:
+            raise ValueError('Message must be at least 10 characters long')
+        return v.strip()
+
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
 async def root():
