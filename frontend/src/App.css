@@ -1,34 +1,96 @@
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+/* Root Variables */
+:root {
+  /* Light mode colors */
+  --bg-page: #ffffff;
+  --bg-card: #f5f5f5;
+  --text-primary: #1a1c1b;
+  --text-secondary: #666666;
+  --text-muted: #999999;
+  --border-color: #e0e0e0;
+  --accent-color: #d9fb06;
+  --accent-hover: rgba(217, 251, 6, 0.8);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+.dark {
+  /* Dark mode colors - Pixel Pushers inspired */
+  --bg-page: #1a1c1b;
+  --bg-card: #302f2c;
+  --text-primary: #d9fb06;
+  --text-secondary: #888680;
+  --text-muted: #666660;
+  --border-color: rgba(63, 72, 22, 0.5);
+  --accent-color: #d9fb06;
+  --accent-hover: rgba(217, 251, 6, 0.8);
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-link {
-    color: #61dafb;
+html {
+  scroll-behavior: smooth;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.bg-page {
+  background-color: var(--bg-page);
+}
+
+.bg-card {
+  background-color: var(--bg-card);
+}
+
+.text-foreground {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.border-custom {
+  border-color: var(--border-color);
+}
+
+.accent-color {
+  color: var(--accent-color);
+}
+
+.bg-accent {
+  background-color: var(--accent-color);
+}
+
+/* Smooth transitions */
+.transition-smooth {
+  transition: all 0.3s ease;
+}
+
+/* Custom scrollbar for dark mode */
+.dark ::-webkit-scrollbar {
+  width: 10px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: var(--bg-card);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 5px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-hover);
 }
