@@ -5,13 +5,14 @@ import { blogPosts } from '../data/mock';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 
+// Blog listing page with article previews and navigation to full posts
 const Blog = () => {
   const navigate = useNavigate();
 
   return (
     <section id="blog" className="py-20 bg-page">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+        {/* Section heading with accent underline */}
         <div className="mb-16">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight accent-color mb-4">
             Blog
@@ -19,7 +20,7 @@ const Blog = () => {
           <div className="h-1 w-20 bg-accent"></div>
         </div>
 
-        {/* Blog Grid */}
+        {/* Blog posts grid - click any card to read full article */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {blogPosts.map((post) => (
             <div
@@ -28,7 +29,7 @@ const Blog = () => {
               onClick={() => navigate(`/blog/${post.slug}`)}
             >
               <div className="p-6 flex flex-col flex-grow">
-                {/* Meta */}
+                {/* Post metadata - date and reading time */}
                 <div className="flex items-center gap-4 text-sm text-muted mb-4">
                   <span>{post.date}</span>
                   <span className="flex items-center gap-1">
@@ -37,17 +38,17 @@ const Blog = () => {
                   </span>
                 </div>
 
-                {/* Title */}
+                {/* Post title - clickable to navigate */}
                 <h3 className="text-xl font-bold mb-3 text-foreground hover:accent-color transition-colors">
                   {post.title}
                 </h3>
 
-                {/* Excerpt */}
+                {/* Post excerpt - teaser of content */}
                 <p className="text-secondary mb-4 flex-grow leading-relaxed">
                   {post.excerpt}
                 </p>
 
-                {/* Tags */}
+                {/* Topic tags - quick categorization */}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {post.tags.map((tag) => (
                     <Badge
@@ -60,7 +61,7 @@ const Blog = () => {
                   ))}
                 </div>
 
-                {/* Read More */}
+                {/* Read more link - opens full post */}
                 <Button
                   variant="ghost"
                   className="w-fit px-0 accent-color hover:bg-transparent font-semibold"
