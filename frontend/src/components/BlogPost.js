@@ -5,25 +5,28 @@ import { blogPosts } from '../data/mock';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 
+// Individual blog post page with full article content and metadata
 const BlogPost = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
-  const post = blogPosts.find((p) => p.slug === slug);
+  const currentPost = blogPosts.find((post) => post.slug === slug);
 
+  // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  if (!post) {
+  // Handle post not found scenario
+  if (!currentPost) {
     return (
       <div className="min-h-screen bg-page flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-bold accent-color mb-4">Post Not Found</h1>
+          <p className="text-secondary mb-6">The blog post you're looking for doesn't exist.</p>
           <Button
             onClick={() => navigate('/')}
             className="bg-accent text-black hover:bg-accent/80 rounded-full"
           >
-            <ArrowLeft className="h-4 w-4 mr-2" />
             Back to Home
           </Button>
         </div>
@@ -32,122 +35,75 @@ const BlogPost = () => {
   }
 
   return (
-    <div className="min-h-screen bg-page text-foreground">
-      {/* Header */}
-      <header className="bg-card border-b border-custom py-6 sticky top-0 z-10 backdrop-blur-lg">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Button
-            variant="ghost"
-            onClick={() => navigate('/')}
-            className="accent-color hover:bg-accent/10"
-          >
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Back to Home
-          </Button>
-        </div>
-      </header>
+    <article className="min-h-screen bg-page py-20">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Back button - easy navigation */}
+        <Button
+          variant="ghost"
+          onClick={() => navigate('/')}
+          className="mb-8 accent-color hover:bg-accent/10"
+        >
+          <ArrowLeft className="h-4 w-4 mr-2" />
+          Back to Portfolio
+        </Button>
 
-      {/* Article */}
-      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Meta Information */}
-        <div className="mb-8">
-          <div className="flex flex-wrap items-center gap-4 text-sm text-muted mb-6">
+        {/* Article header section */}
+        <header className="mb-12">
+          {/* Post title - main heading */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight accent-color mb-6">
+            {currentPost.title}
+          </h1>
+
+          {/* Post metadata - date and reading time */}
+          <div className="flex flex-wrap items-center gap-6 text-secondary mb-8">
             <span className="flex items-center gap-2">
-              <Calendar className="h-4 w-4" />
-              {post.date}
+              <Calendar className="h-5 w-5" />
+              {currentPost.date}
             </span>
             <span className="flex items-center gap-2">
-              <Clock className="h-4 w-4" />
-              {post.readTime}
+              <Clock className="h-5 w-5" />
+              {currentPost.readTime}
             </span>
           </div>
 
-          {/* Tags */}
-          <div className="flex flex-wrap gap-2 mb-6">
-            {post.tags.map((tag) => (
+          {/* Topic tags - categorization */}
+          <div className="flex flex-wrap gap-3">
+            {currentPost.tags.map((tag) => (
               <Badge
                 key={tag}
-                className="bg-accent/10 text-foreground border border-accent/30 text-sm"
+                variant="secondary"
+                className="bg-accent/10 text-foreground border border-accent/20 px-3 py-1"
               >
                 {tag}
               </Badge>
             ))}
           </div>
+        </header>
 
-          {/* Title */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase leading-tight accent-color mb-6">
-            {post.title}
-          </h1>
+        {/* Article divider */}
+        <div className="h-1 w-20 bg-accent mb-12"></div>
+
+        {/* Article content - rendered from markdown */}
+        <div className="prose prose-invert max-w-none">
+          <div className="text-secondary leading-relaxed whitespace-pre-wrap">
+            {currentPost.content}
+          </div>
         </div>
 
-        {/* Content */}
-        <div className="prose prose-lg max-w-none">
-          {post.content.split('\n').map((line, index) => {
-            // Handle headings
-            if (line.startsWith('# ')) {
-              return (
-                <h1 key={index} className="text-4xl font-black uppercase accent-color mt-12 mb-6">
-                  {line.replace('# ', '')}
-                </h1>
-              );
-            }
-            if (line.startsWith('## ')) {
-              return (
-                <h2 key={index} className="text-3xl font-bold text-foreground mt-10 mb-4">
-                  {line.replace('## ', '')}
-                </h2>
-              );
-            }
-            if (line.startsWith('### ')) {
-              return (
-                <h3 key={index} className="text-2xl font-bold text-foreground mt-8 mb-3">
-                  {line.replace('### ', '')}
-                </h3>
-              );
-            }
-
-            // Handle list items
-            if (line.match(/^\d+\./)) {
-              return (
-                <li key={index} className="text-secondary text-lg leading-relaxed ml-6 mb-2">
-                  {line.replace(/^\d+\.\s/, '')}
-                </li>
-              );
-            }
-            if (line.startsWith('- ')) {
-              return (
-                <li key={index} className="text-secondary text-lg leading-relaxed ml-6 mb-2">
-                  {line.replace('- ', '')}
-                </li>
-              );
-            }
-
-            // Handle paragraphs
-            if (line.trim() !== '') {
-              return (
-                <p key={index} className="text-secondary text-lg leading-relaxed mb-6">
-                  {line}
-                </p>
-              );
-            }
-
-            // Empty lines
-            return <div key={index} className="h-4"></div>;
-          })}
-        </div>
-
-        {/* Back Button */}
-        <div className="mt-12 pt-8 border-t border-custom">
+        {/* Call-to-action section */}
+        <div className="mt-16 pt-12 border-t border-custom">
+          <p className="text-secondary mb-6">
+            Found this interesting? Feel free to reach out or explore more of my work!
+          </p>
           <Button
             onClick={() => navigate('/')}
-            className="bg-accent text-black hover:bg-accent/80 rounded-full px-8"
+            className="bg-accent text-black hover:bg-accent/80 rounded-full"
           >
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Back to Home
+            Back to Portfolio
           </Button>
         </div>
-      </article>
-    </div>
+      </div>
+    </article>
   );
 };
 
