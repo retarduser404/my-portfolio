@@ -11,36 +11,43 @@ import Footer from './components/Footer';
 import { experience } from './data/mock';
 import './App.css';
 
-function HomePage() {
-  const [darkMode, setDarkMode] = useState(true);
+// Main portfolio app with dark mode toggle and routing
+const PortfolioApp = () => {
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
+  // Initialize dark mode from localStorage or system preference
   useEffect(() => {
-    // Check for saved preference or system preference
     const savedMode = localStorage.getItem('darkMode');
     if (savedMode !== null) {
-      setDarkMode(savedMode === 'true');
+      setIsDarkMode(savedMode === 'true');
     } else {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      setDarkMode(prefersDark);
+      // Respect system preference if no saved setting
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setIsDarkMode(systemPrefersDark);
     }
   }, []);
 
+  // Persist dark mode preference and apply to DOM
   useEffect(() => {
-    localStorage.setItem('darkMode', darkMode);
-    if (darkMode) {
+    localStorage.setItem('darkMode', isDarkMode);
+    if (isDarkMode) {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
-  }, [darkMode]);
+  }, [isDarkMode]);
 
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
+  const handleDarkModeToggle = () => {
+    setIsDarkMode(prevMode => !prevMode);
   };
 
   return (
     <div className="min-h-screen bg-page text-foreground transition-colors duration-300">
-      <Navigation darkMode={darkMode} toggleDarkMode={toggleDarkMode} hasExperience={experience.length > 0} />
+      <Navigation 
+        isDarkMode={isDarkMode} 
+        onToggleDarkMode={handleDarkModeToggle} 
+        hasExperience={experience.length > 0} 
+      />
       <Hero />
       <About />
       <Projects />
@@ -49,17 +56,18 @@ function HomePage() {
       <Footer />
     </div>
   );
-}
+};
 
-function App() {
+// App router component
+const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<PortfolioApp />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
       </Routes>
     </BrowserRouter>
   );
-}
+};
 
 export default App;
