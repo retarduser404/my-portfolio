@@ -2,11 +2,12 @@ import React from 'react';
 import { personalInfo, skills } from '../data/mock';
 import { Badge } from './ui/badge';
 
+// Display personal background, bio, and technical skills
 const About = () => {
   return (
     <section id="about" className="py-20 bg-page">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+        {/* Section heading with accent underline */}
         <div className="mb-16">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight accent-color mb-4">
             About Me
@@ -14,7 +15,7 @@ const About = () => {
           <div className="h-1 w-20 bg-accent"></div>
         </div>
 
-        {/* Bio */}
+        {/* Personal bio - multiple paragraphs from data */}
         <div className="mb-16 space-y-6">
           {personalInfo.bio.map((paragraph, index) => (
             <p key={index} className="text-lg sm:text-xl text-secondary leading-relaxed">
@@ -23,13 +24,13 @@ const About = () => {
           ))}
         </div>
 
-        {/* Skills */}
+        {/* Skills section with categorized cards */}
         <div>
           <h3 className="text-2xl sm:text-3xl font-bold mb-8 text-foreground">
             Technical Skills
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Frontend */}
+            {/* Frontend technologies I love working with */}
             <div className="bg-card p-6 rounded-lg border border-custom hover:border-accent transition-colors">
               <h4 className="text-xl font-bold mb-4 accent-color uppercase tracking-wide">
                 Frontend
@@ -47,7 +48,7 @@ const About = () => {
               </div>
             </div>
 
-            {/* Backend */}
+            {/* Backend & database knowledge */}
             <div className="bg-card p-6 rounded-lg border border-custom hover:border-accent transition-colors">
               <h4 className="text-xl font-bold mb-4 accent-color uppercase tracking-wide">
                 Backend
@@ -65,7 +66,7 @@ const About = () => {
               </div>
             </div>
 
-            {/* AI/ML */}
+            {/* AI & ML - growing expertise area */}
             <div className="bg-card p-6 rounded-lg border border-custom hover:border-accent transition-colors">
               <h4 className="text-xl font-bold mb-4 accent-color uppercase tracking-wide">
                 AI & Machine Learning
@@ -83,7 +84,7 @@ const About = () => {
               </div>
             </div>
 
-            {/* Cyber Security */}
+            {/* Cybersecurity - passionate about secure code */}
             <div className="bg-card p-6 rounded-lg border border-custom hover:border-accent transition-colors">
               <h4 className="text-xl font-bold mb-4 accent-color uppercase tracking-wide">
                 Cyber Security
@@ -101,7 +102,7 @@ const About = () => {
               </div>
             </div>
 
-            {/* Tools - spans full width on larger screens */}
+            {/* Developer tools & platforms - full width on larger screens */}
             <div className="bg-card p-6 rounded-lg border border-custom hover:border-accent transition-colors md:col-span-2">
               <h4 className="text-xl font-bold mb-4 accent-color uppercase tracking-wide">
                 Tools & Platforms
