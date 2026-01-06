@@ -4,11 +4,12 @@ import { projects } from '../data/mock';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 
+// Showcase portfolio projects with descriptions, tech stack, and links
 const Projects = () => {
   return (
     <section id="projects" className="py-20 bg-card">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+        {/* Section heading with visual accent */}
         <div className="mb-16">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight accent-color mb-4">
             Projects
@@ -16,31 +17,31 @@ const Projects = () => {
           <div className="h-1 w-20 bg-accent"></div>
         </div>
 
-        {/* Projects Grid */}
+        {/* Responsive grid layout for project cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project) => (
             <div
               key={project.id}
               className="bg-page border border-custom rounded-lg p-6 hover:border-accent transition-all duration-300 flex flex-col"
             >
-              {/* Featured Badge */}
+              {/* Highlight featured projects */}
               {project.featured && (
                 <Badge className="bg-accent text-black w-fit mb-4 uppercase text-xs font-bold">
                   Featured
                 </Badge>
               )}
 
-              {/* Project Title */}
+              {/* Project title - clear and prominent */}
               <h3 className="text-xl font-bold mb-3 text-foreground">
                 {project.title}
               </h3>
 
-              {/* Description */}
+              {/* Project description - explains what it does */}
               <p className="text-secondary mb-4 flex-grow leading-relaxed">
                 {project.description}
               </p>
 
-              {/* Tech Stack */}
+              {/* Technologies used - quick visual reference */}
               <div className="flex flex-wrap gap-2 mb-6">
                 {project.tech.map((tech) => (
                   <span
@@ -52,7 +53,7 @@ const Projects = () => {
                 ))}
               </div>
 
-              {/* Links */}
+              {/* Action buttons - view code and live demo */}
               <div className="flex gap-3">
                 <Button
                   variant="outline"
