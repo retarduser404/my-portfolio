@@ -4,14 +4,16 @@ import { Button } from './ui/button';
 import { personalInfo } from '../data/mock';
 
 const Hero = () => {
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
+  // Smooth scroll with header offset for better UX
+  const smoothScrollToSection = (sectionId) => {
+    const targetElement = document.getElementById(sectionId);
+    if (targetElement) {
+      const headerHeight = 80; // nav height
+      const targetPosition = targetElement.getBoundingClientRect().top;
+      const scrollOffset = targetPosition + window.pageYOffset - headerHeight;
+      
       window.scrollTo({
-        top: offsetPosition,
+        top: scrollOffset,
         behavior: 'smooth'
       });
     }
@@ -24,12 +26,12 @@ const Hero = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
         <div className="space-y-8">
-          {/* Main Heading */}
+          {/* Large hero name - the anchor point */}
           <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black uppercase leading-none tracking-tight">
             <span className="accent-color">{personalInfo.name}</span>
           </h1>
 
-          {/* Subtitle */}
+          {/* Role and description stack */}
           <div className="space-y-4">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary">
               {personalInfo.title}
@@ -42,16 +44,16 @@ const Hero = () => {
             </p>
           </div>
 
-          {/* CTA Buttons */}
+          {/* Primary CTA buttons - work and contact */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
             <Button
-              onClick={() => scrollToSection('projects')}
+              onClick={() => smoothScrollToSection('projects')}
               className="bg-accent text-black hover:bg-accent/80 rounded-full px-8 py-6 text-base font-semibold uppercase min-w-[200px]"
             >
               View My Work
             </Button>
             <Button
-              onClick={() => scrollToSection('contact')}
+              onClick={() => smoothScrollToSection('contact')}
               variant="outline"
               className="border-2 border-accent accent-color hover:bg-accent hover:text-black rounded-full px-8 py-6 text-base font-semibold uppercase min-w-[200px]"
             >
@@ -59,7 +61,7 @@ const Hero = () => {
             </Button>
           </div>
 
-          {/* Social Links */}
+          {/* Social links - connect */}
           <div className="flex items-center justify-center gap-6 pt-8">
             <a
               href={personalInfo.social.github}
@@ -90,9 +92,9 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll down indicator - visual hint for more content */}
       <button
-        onClick={() => scrollToSection('about')}
+        onClick={() => smoothScrollToSection('about')}
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce accent-color"
         aria-label="Scroll down"
       >
